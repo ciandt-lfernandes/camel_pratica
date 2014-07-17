@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://camel.apache.org/schema/spring 
+		http://camel.apache.org/schema/spring/camel-spring.xsd
+		http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+		http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    ">
+  <!-- We still need it for loading the CXFServlet --> 
+  <import resource="classpath:META-INF/cxf/cxf.xml"/>
+ 
+	<context:annotation-config />
+	
+	
+	
+	<context:component-scan base-package="br.com.camel.camel.pojo" />
+
+	<camelContext id="RotasCamelContext" xmlns="http://camel.apache.org/schema/spring">
+		<package>br.com.pratica.camel.rotas </package>
+	</camelContext>
+	
+	<!-- Processors -->
+	<bean id="ImprimeStringProcessor" class="br.com.pratica.camel.processos.ImprimeStringProcessor"/>
+	
+	
+</beans>
