@@ -36,5 +36,11 @@
 	<bean id="MultiplicacaoProcessor" class="br.com.pratica.camel.processos.MultiplicacaoProcessor"/>
 	<bean id="DivisaoProcessor" class="br.com.pratica.camel.processos.DivisaoProcessor"/>
 	
+	<bean id="SetHeaderProcessor" class="br.com.pratica.camel.processos.SetHeaderProcessor"/>
+	<bean id="LoggerMessageProcessor" class="br.com.pratica.camel.processos.LoggerMessageProcessor"/>
+	
+	
+	
+	
 	
 </beans>
