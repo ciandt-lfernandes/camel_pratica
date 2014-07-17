@@ -31,6 +31,10 @@
 	
 	<!-- Processors -->
 	<bean id="ImprimeStringProcessor" class="br.com.pratica.camel.processos.ImprimeStringProcessor"/>
+	<bean id="SomaProcessor" class="br.com.pratica.camel.processos.SomaProcessor"/>
+	<bean id="SubtracaoProcessor" class="br.com.pratica.camel.processos.SubtracaoProcessor"/>
+	<bean id="MultiplicacaoProcessor" class="br.com.pratica.camel.processos.MultiplicacaoProcessor"/>
+	<bean id="DivisaoProcessor" class="br.com.pratica.camel.processos.DivisaoProcessor"/>
 	
 	
 </beans>

@@ -16,6 +16,7 @@
  */
 package br.com.pratica.camel.services;
 
+import br.com.pratica.camel.model.Operandos;
 import br.com.pratica.camel.model.RequestString;
 import br.com.pratica.camel.model.ResponseString;
 
@@ -28,12 +29,12 @@ import br.com.pratica.camel.model.ResponseString;
  * @version 
  */
 // START SNIPPET: e1
-public interface Service {
-
-    /**
-     * Operation to report an incident
-     */
-    ResponseString imprimeString(RequestString string);
+public interface CalculadoraService {
+    
+    ResponseString soma(Operandos o);
+    ResponseString subtracao(Operandos o);
+    ResponseString multiplicacao(Operandos o);
+    ResponseString divisao(Operandos o);
 
     
 }
