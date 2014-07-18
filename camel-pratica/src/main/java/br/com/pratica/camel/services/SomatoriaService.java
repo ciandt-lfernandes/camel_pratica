@@ -14,30 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.pratica.camel.model;
+package br.com.pratica.camel.services;
+
+import br.com.pratica.camel.model.ResponseString;
+
 
 /**
+ * Interface with the services we want to expose as web services using code first.
+ * <p/>
+ * This is a basic example, you can use the JAX-WS annotations to control the contract.
+ *
  * @version 
  */
-public class ResponseString {
-
-    private String output;
+// START SNIPPET: e1
+public interface SomatoriaService {
     
-	public ResponseString(String output) {
-		this.output = output;
-	}
-
-	public ResponseString() {
-		
-	}
-
-	public String getOutput() {
-		return output;
-	}
-
-	public void setOutput(String output) {
-		this.output = output;
-	}
-
+	Integer somatoria(Integer numero);
+	String getSomatoria();
 	    
 }
+// END SNIPPET: e1

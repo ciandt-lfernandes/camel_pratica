@@ -39,6 +39,9 @@
 	<bean id="SetHeaderProcessor" class="br.com.pratica.camel.processos.SetHeaderProcessor"/>
 	<bean id="LoggerMessageProcessor" class="br.com.pratica.camel.processos.LoggerMessageProcessor"/>
 	
+	<bean id="GetSomatoriaProcessor" class="br.com.pratica.camel.processos.GetSomatoriaProcessor"/>
+	
+	
 	
 	
 	
