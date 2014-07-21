@@ -10,7 +10,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath:broker.xml,
+			<!--  classpath:broker.xml,-->
 			/WEB-INF/applicationContext.xml
 		</param-value>
 	</context-param>

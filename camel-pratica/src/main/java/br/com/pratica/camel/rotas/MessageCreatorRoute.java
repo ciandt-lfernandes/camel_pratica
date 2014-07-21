@@ -9,7 +9,7 @@ public class MessageCreatorRoute extends RouteBuilder {
 	public void configure() throws Exception {
 
 		
-		from("timer://mytimer?period=2s")
+		from("timer://mytimer?period=60s")
 		.process(new CreateMessageProcessor())
 		.to("activemq:queue:QueueA");
 		
