@@ -1,9 +1,10 @@
 package br.com.pratica.camel.rotas;
+import org.apache.camel.ExchangePattern;
 import org.apache.camel.builder.RouteBuilder;
 
-import br.com.pratica.camel.services.CalculadoraService;
 import br.com.pratica.camel.services.SomatoriaService;
-import br.com.pratica.camel.strategy.*;;
+import br.com.pratica.camel.strategy.GetSomatoriaMqResultStrategy;
+import br.com.pratica.camel.strategy.SomatoriaStrategy;
 
 
  
@@ -22,17 +23,13 @@ public class SomatoriaRoute extends RouteBuilder {
 	   .processRef("SetHeaderProcessor")
 	   .aggregate(new SomatoriaStrategy()).header("id").completionSize(5)
 	   .processRef("LoggerMessageProcessor")
-	   .marshal().string()
-	   .to("file:target/out");
+	   .to("activemq:queue:SomatoriaIn");
 	   
 	   from("direct:getSomatoria")
-	  //.from("file:target/out?move=processado&autoCreate=false").unmarshal().string()
-	  .processRef("GetSomatoriaProcessor")
-	  .processRef("LoggerMessageProcessor")
+	   //Podemos utilizar um Processor para acessar os dados da fila e adicionar no exchange 
+       //.processRef("GetSomatorioMqProcessor")
+	   //Ou podemos utilizar o padrão Enrich em conjunto com uma strategy para realiza a tarefa
+	   .pollEnrich("activemq:queue:SomatoriaIn" ,500, new GetSomatoriaMqResultStrategy())
 	  .end();
-	 	
 	}
-	
-
-
 }
