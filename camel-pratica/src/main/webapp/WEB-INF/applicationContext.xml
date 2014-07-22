@@ -2,8 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/cxf"
 	xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans 
@@ -17,30 +16,32 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
     ">
-  <!-- We still need it for loading the CXFServlet --> 
-  <import resource="classpath:META-INF/cxf/cxf.xml"/>
- 
+	<!-- We still need it for loading the CXFServlet -->
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+
 	<context:annotation-config />
-	
-	
-	
+
+
+
 	<context:component-scan base-package="br.com.camel.camel.pojo" />
 
 	<camelContext id="RotasCamelContext" xmlns="http://camel.apache.org/schema/spring">
 		<package>br.com.pratica.camel.rotas </package>
+		<consumerTemplate id="consumer"/>
 	</camelContext>
-	
+
 	<!-- Processors -->
-	<bean id="ImprimeStringProcessor" class="br.com.pratica.camel.processos.ImprimeStringProcessor"/>
-	<bean id="SomaProcessor" class="br.com.pratica.camel.processos.SomaProcessor"/>
-	<bean id="SubtracaoProcessor" class="br.com.pratica.camel.processos.SubtracaoProcessor"/>
-	<bean id="MultiplicacaoProcessor" class="br.com.pratica.camel.processos.MultiplicacaoProcessor"/>
-	<bean id="DivisaoProcessor" class="br.com.pratica.camel.processos.DivisaoProcessor"/>
-	
-	<bean id="SetHeaderProcessor" class="br.com.pratica.camel.processos.SetHeaderProcessor"/>
-	<bean id="LoggerMessageProcessor" class="br.com.pratica.camel.processos.LoggerMessageProcessor"/>
-	
-	<bean id="GetSomatoriaProcessor" class="br.com.pratica.camel.processos.GetSomatoriaProcessor"/>
+	<bean id="ImprimeStringProcessor" class="br.com.pratica.camel.processos.ImprimeStringProcessor" />
+	<bean id="SomaProcessor" class="br.com.pratica.camel.processos.SomaProcessor" />
+	<bean id="SubtracaoProcessor" class="br.com.pratica.camel.processos.SubtracaoProcessor" />
+	<bean id="MultiplicacaoProcessor" class="br.com.pratica.camel.processos.MultiplicacaoProcessor" />
+	<bean id="DivisaoProcessor" class="br.com.pratica.camel.processos.DivisaoProcessor" />
+
+	<bean id="SetHeaderProcessor" class="br.com.pratica.camel.processos.SetHeaderProcessor" />
+	<bean id="LoggerMessageProcessor" class="br.com.pratica.camel.processos.LoggerMessageProcessor" />
+
+	<bean id="GetSomatoriaProcessor" class="br.com.pratica.camel.processos.GetSomatoriaProcessor" />
+	<bean id="GetSomatorioMqProcessor" class="br.com.pratica.camel.processos.GetSomatorioMqProcessor" />
 	
 	
 	<bean id="ConsultarPessoaIdProcessor" class="br.com.pratica.camel.processos.pessoa.ConsultarPessoaIdProcessor"/>
@@ -48,12 +49,11 @@
 	<bean id="DeletarPessoaIdProcessor" class="br.com.pratica.camel.processos.pessoa.DeletarPessoaIdProcessor"/>
 	<bean id="EditarPessoaProcessor" class="br.com.pratica.camel.processos.pessoa.EditarPessoaProcessor"/>
 	<bean id="InserirPessoaProcessor" class="br.com.pratica.camel.processos.pessoa.InserirPessoaProcessor"/>
-	
-	
-	
-	
-	<bean id="activemq" class="org.apache.camel.component.jms.JmsComponent"
-		p:configuration-ref="jmsConfig" p:transacted="true" p:cacheLevelName="CACHE_CONSUMER" />
+
+	<bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent"
+		p:configuration-ref="jmsConfig">
+		<property name="configuration" ref="jmsConfig" />
+	</bean>
 
 	<bean id="jmsConfig" class="org.apache.camel.component.jms.JmsConfiguration"
 		p:connectionFactory-ref="nakedConnectionFactory"
@@ -63,8 +63,7 @@
 	<bean id="nakedConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory"
 		p:brokerURL="tcp://localhost:61616" />
 		
-	
-	<!-- Configuracao JPA -->
+			<!-- Configuracao JPA -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="camelPraticaUnit" />
@@ -76,7 +75,5 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />	
-	
-	
-	
+
 </beans>
