@@ -43,6 +43,15 @@
 	<bean id="GetSomatoriaProcessor" class="br.com.pratica.camel.processos.GetSomatoriaProcessor"/>
 	
 	
+	<bean id="ConsultarPessoaIdProcessor" class="br.com.pratica.camel.processos.pessoa.ConsultarPessoaIdProcessor"/>
+	<bean id="ConsultarPessoaNomeProcessor" class="br.com.pratica.camel.processos.pessoa.ConsultarPessoaNomeProcessor"/>
+	<bean id="DeletarPessoaIdProcessor" class="br.com.pratica.camel.processos.pessoa.DeletarPessoaIdProcessor"/>
+	<bean id="EditarPessoaProcessor" class="br.com.pratica.camel.processos.pessoa.EditarPessoaProcessor"/>
+	<bean id="InserirPessoaProcessor" class="br.com.pratica.camel.processos.pessoa.InserirPessoaProcessor"/>
+	
+	
+	
+	
 	<bean id="activemq" class="org.apache.camel.component.jms.JmsComponent"
 		p:configuration-ref="jmsConfig" p:transacted="true" p:cacheLevelName="CACHE_CONSUMER" />
 
@@ -53,6 +62,20 @@
 
 	<bean id="nakedConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory"
 		p:brokerURL="tcp://localhost:61616" />
+		
+	
+	<!-- Configuracao JPA -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="camelPraticaUnit" />
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />	
 	
 	
 	

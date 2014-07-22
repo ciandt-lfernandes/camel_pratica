@@ -17,17 +17,17 @@
 			<artifactId>camel-spring</artifactId>
 			<version>2.12-SNAPSHOT</version>
 		</dependency>
-		        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-cxf</artifactId>
-            <version>2.12-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-servlet</artifactId>
-            <version>2.12-SNAPSHOT</version>
-        </dependency>
-        
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-cxf</artifactId>
+			<version>2.12-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-servlet</artifactId>
+			<version>2.12-SNAPSHOT</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -39,19 +39,19 @@
 			<version>3.0.7.RELEASE</version>
 		</dependency>
 
-		
-		
-		 <!-- cxf -->
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>2.7.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http</artifactId>
-            <version>2.7.4</version>
-        </dependency>
+
+
+		<!-- cxf -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>2.7.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>2.7.4</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.sun.faces</groupId>
@@ -63,7 +63,7 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>2.0.0</version>
 		</dependency>
-		
+
 		<!-- camel jms and activemq -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
@@ -115,7 +115,12 @@
 			<artifactId>xbean-spring</artifactId>
 			<version>3.13</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.6.0.Final</version>
+		</dependency>
+
 
 	</dependencies>
 

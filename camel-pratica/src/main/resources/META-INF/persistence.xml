@@ -1,0 +1,34 @@
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	<persistence-unit name="camelPraticaUnit" transaction-type="RESOURCE_LOCAL">
+	
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<jta-data-source>camel_pratica</jta-data-source>
+		<non-jta-data-source>camel_pratica</non-jta-data-source>
+
+		<class>br.com.pratica.camel.model.Pessoa</class>
+		
+		
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />
+			<!--  <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2008Dialect" /> -->			
+			<!--property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /-->
+			<!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" /> --> 
+			
+			<property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/> 
+            <property name="hibernate.validator.apply_to_ddl" value="false"/> 
+			<property name="hibernate.validator.autoregister_listeners" value="false"/>
+			<property name="hibernate.query.factory_class" value="org.hibernate.hql.classic.ClassicQueryTranslatorFactory"/>
+			
+			
+			
+			
+		</properties>
+
+	
+	</persistence-unit>
+</persistence>
