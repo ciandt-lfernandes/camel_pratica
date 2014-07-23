@@ -4,7 +4,9 @@ import org.apache.camel.builder.RouteBuilder;
 import br.com.pratica.camel.services.CalculadoraService;
 import br.com.pratica.camel.services.ImprimeStringService;
 
-
+/*
+ * Rota ImprimeString - Dependendo do método do serviço /imprimeString chamado, o processamento seguirá para um direct: específico 
+ */
  
 public class ImprimeStringRoute extends RouteBuilder {
 

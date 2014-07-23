@@ -3,6 +3,7 @@ package br.com.pratica.camel.strategy;
 import org.apache.camel.Exchange;
 import org.apache.camel.processor.aggregate.AggregationStrategy;
 
+
 public class GetSomatoriaMqResultStrategy implements AggregationStrategy {
 
 	public Exchange aggregate(Exchange original, Exchange resource) {

@@ -14,25 +14,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package br.com.pratica.camel.services;
+package br.com.pratica.camel.model;
 
-import br.com.pratica.camel.model.Pessoa;
-import br.com.pratica.camel.model.ResponseString;
-import br.com.pratica.camel.model.ResponseStringObject;
-
-
-/*
- * Servico - Pessoa
- * Esse servico possui as operações básicas de banco de dados com um objeto
+/**
+ * @version 
  */
+public class ResponseStringObject {
 
-public interface PessoaService {
+    private String output;
+    private Object responseObject;
     
-	ResponseStringObject inserirPessoa(Pessoa p);
-	ResponseStringObject consultarPessoaId(Integer id);
-	ResponseStringObject consultarPessoaNome(String nome);
-    String deletarPessoaId(Integer id);
-    ResponseStringObject editarPessoa(Pessoa p);
-    
+	public ResponseStringObject(String output, Object responseObject) {
+		this.output = output;
+		this.responseObject = responseObject;
+	}
+
+	public ResponseStringObject() {
+		
+	}
+
+	public String getOutput() {
+		return output;
+	}
+
+	public void setOutput(String output) {
+		this.output = output;
+	}
+
+	public Object getResponseObject() {
+		return responseObject;
+	}
+
+	public void setResponseObject(Object responseObject) {
+		this.responseObject = responseObject;
+	}
+
+	    
 }
-

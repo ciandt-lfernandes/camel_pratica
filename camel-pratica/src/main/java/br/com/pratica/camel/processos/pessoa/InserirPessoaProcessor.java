@@ -8,8 +8,11 @@ import br.com.pratica.camel.model.Operandos;
 import br.com.pratica.camel.model.Pessoa;
 import br.com.pratica.camel.model.RequestString;
 import br.com.pratica.camel.model.ResponseString;
+import br.com.pratica.camel.model.ResponseStringObject;
 
-
+/*
+ * Usa a camada de acesso ao banco para inserir uma pessoa 
+ */
 public class InserirPessoaProcessor implements Processor {
 
 
@@ -18,11 +21,9 @@ public class InserirPessoaProcessor implements Processor {
 		
 		Dao d = new DaoImpl();
 		
-		String response = d.persistir(p);
+		ResponseStringObject response = d.persistir(p);
 		
-		ResponseString r  = new ResponseString(response);
-						
-		exchange.getIn().setBody(r);
+		exchange.getIn().setBody(response);
 	}
 
 }

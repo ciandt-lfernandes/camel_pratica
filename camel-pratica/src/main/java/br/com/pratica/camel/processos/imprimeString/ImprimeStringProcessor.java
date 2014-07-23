@@ -1,10 +1,13 @@
-package br.com.pratica.camel.processos;
+package br.com.pratica.camel.processos.imprimeString;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 
 import br.com.pratica.camel.model.RequestString;
 import br.com.pratica.camel.model.ResponseString;
 
+/*
+ * Recebe uma string e response o serviço com uma string concatenada confimando o recebimento
+ */
 
 public class ImprimeStringProcessor implements Processor {
 

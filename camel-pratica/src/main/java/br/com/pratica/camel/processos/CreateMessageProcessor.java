@@ -9,6 +9,9 @@ import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.impl.DefaultMessage;
 
+/*
+ * Cria uma mensagem com a data corrente e um valor randomico
+ */
 
 public class CreateMessageProcessor implements Processor {
 

@@ -16,21 +16,16 @@
  */
 package br.com.pratica.camel.services;
 
-import br.com.pratica.camel.model.ResponseString;
 
-
-/**
- * Interface with the services we want to expose as web services using code first.
- * <p/>
- * This is a basic example, you can use the JAX-WS annotations to control the contract.
- *
- * @version 
+/*
+ * Servico - Somatoria
+ * Esse servico possui um método que implementa uma somatória e o outro que responde o resultado.
  */
-// START SNIPPET: e1
+
 public interface SomatoriaService {
     
 	Integer somatoria(Integer numero);
 	String getSomatoria();
 	    
 }
-// END SNIPPET: e1
+

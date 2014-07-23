@@ -3,6 +3,10 @@ package br.com.pratica.camel.processos;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 
+/*
+ * Loga uma mensagem no console 
+ */
+
 public class LogMessageProcessor implements Processor {
 
 	public void process(Exchange exchange) throws Exception {

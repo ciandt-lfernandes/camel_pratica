@@ -8,8 +8,11 @@ import br.com.pratica.camel.model.Operandos;
 import br.com.pratica.camel.model.Pessoa;
 import br.com.pratica.camel.model.RequestString;
 import br.com.pratica.camel.model.ResponseString;
+import br.com.pratica.camel.model.ResponseStringObject;
 
-
+/*
+ * Usa a camada de acesso ao banco para editar uma pessoa 
+ */
 public class EditarPessoaProcessor implements Processor {
 
 
@@ -18,9 +21,9 @@ public class EditarPessoaProcessor implements Processor {
 		
 		Dao d = new DaoImpl();
 		
-		ResponseString r  = new ResponseString(d.editarPessoa(p));
+		ResponseStringObject response = d.editarPessoa(p);
 						
-		exchange.getIn().setBody(r);
+		exchange.getIn().setBody(response);
 	}
 
 }

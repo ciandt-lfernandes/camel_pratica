@@ -7,7 +7,9 @@ import br.com.pratica.camel.services.CalculadoraService;
 import br.com.pratica.camel.services.PessoaService;
 
 
- 
+/*
+ * Rota Pessoa - Dependendo do método do serviço /pessoa chamado, o processamento seguirá para um direct: específico 
+ */
 public class PessoaRoute extends RouteBuilder {
 
 	public void configure() throws Exception {

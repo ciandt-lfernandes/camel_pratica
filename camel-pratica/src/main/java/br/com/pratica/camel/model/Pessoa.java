@@ -4,18 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+/*
+ * Entidade Pessoa. Representa a tabela PESSOA no banco de dados
+ */
 
 @Entity
 @Table (name="pessoa", schema="camel_pratica")
-
-
-
 public class Pessoa {
 	public static final String BUSCA_PESSOA_POR_NOME = "pessoa.buscarPessoaPorNome";
 	

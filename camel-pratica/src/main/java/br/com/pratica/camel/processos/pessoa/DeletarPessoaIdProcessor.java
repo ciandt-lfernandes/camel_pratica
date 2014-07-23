@@ -9,7 +9,9 @@ import br.com.pratica.camel.model.Pessoa;
 import br.com.pratica.camel.model.RequestString;
 import br.com.pratica.camel.model.ResponseString;
 
-
+/*
+ * Usa a camada de acesso ao banco para deletar uma pessoa por id
+ */
 public class DeletarPessoaIdProcessor implements Processor {
 
 
@@ -18,7 +20,7 @@ public class DeletarPessoaIdProcessor implements Processor {
 		
 		Dao d = new DaoImpl();
 		
-		ResponseString r  = new ResponseString(d.deletarPessoa(id));
+		String r  = d.deletarPessoa(id);
 						
 		exchange.getIn().setBody(r);
 	}

@@ -8,8 +8,11 @@ import br.com.pratica.camel.model.Operandos;
 import br.com.pratica.camel.model.Pessoa;
 import br.com.pratica.camel.model.RequestString;
 import br.com.pratica.camel.model.ResponseString;
+import br.com.pratica.camel.model.ResponseStringObject;
 
-
+/*
+ * Usa a camada de acesso ao banco para consultar uma pessoa por nome
+ */
 public class ConsultarPessoaNomeProcessor implements Processor {
 
 
@@ -18,9 +21,9 @@ public class ConsultarPessoaNomeProcessor implements Processor {
 		
 		Dao d = new DaoImpl();
 		
-		Pessoa p = d.consultaNome(nome);
+		ResponseStringObject response = d.consultaNome(nome);
 								
-		exchange.getIn().setBody(p);
+		exchange.getIn().setBody(response);
 	}
 
 }

@@ -7,14 +7,16 @@ import org.apache.camel.processor.aggregate.AggregationStrategy;
 import br.com.pratica.camel.model.RequestString;
 
 
-
+/*
+ * Executa uma somatória com os valores recebidos da agregação
+ */
 public class SomatoriaStrategy implements AggregationStrategy {
  
     public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
     	RequestString r = new RequestString();
     	
+    	//Primeira iteração da agregação. No caso o oldExchange será nulo.
         if (oldExchange == null) {
-            // the first time we only have the new exchange so it wins the first round
             return newExchange;
         }
               
@@ -26,9 +28,6 @@ public class SomatoriaStrategy implements AggregationStrategy {
         Message msg = new DefaultMessage();
         msg.setBody(soma);
         newExchange.setIn(msg); 
-       
-        //r.setInput("Somatoria ate o momento:" + String.valueOf(soma));
-        //newExchange.getIn().setBody(r);
         
         return newExchange;
     }

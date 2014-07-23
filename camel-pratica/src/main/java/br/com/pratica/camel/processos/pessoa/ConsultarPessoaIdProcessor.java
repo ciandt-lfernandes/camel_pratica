@@ -8,19 +8,22 @@ import br.com.pratica.camel.model.Operandos;
 import br.com.pratica.camel.model.Pessoa;
 import br.com.pratica.camel.model.RequestString;
 import br.com.pratica.camel.model.ResponseString;
+import br.com.pratica.camel.model.ResponseStringObject;
 
+/*
+ * Usa a camada de acesso ao banco para consultar uma pessoa por Id
+ */
 
 public class ConsultarPessoaIdProcessor implements Processor {
-
 
 	public void process(Exchange exchange) throws Exception {
 		Integer id =  exchange.getIn().getBody(Integer.class);
 		
 		Dao d = new DaoImpl();
 		
-		Pessoa p = d.consultaId(id);
+		ResponseStringObject response = d.consultaId(id);
 						
-		exchange.getIn().setBody(p);
+		exchange.getIn().setBody(response);
 	}
 
 }

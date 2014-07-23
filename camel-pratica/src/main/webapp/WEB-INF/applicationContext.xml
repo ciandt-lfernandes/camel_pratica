@@ -27,29 +27,50 @@
 
 	<camelContext id="RotasCamelContext" xmlns="http://camel.apache.org/schema/spring">
 		<package>br.com.pratica.camel.rotas </package>
-		<consumerTemplate id="consumer"/>
+		<consumerTemplate id="consumer" />
 	</camelContext>
 
 	<!-- Processors -->
-	<bean id="ImprimeStringProcessor" class="br.com.pratica.camel.processos.ImprimeStringProcessor" />
-	<bean id="SomaProcessor" class="br.com.pratica.camel.processos.SomaProcessor" />
-	<bean id="SubtracaoProcessor" class="br.com.pratica.camel.processos.SubtracaoProcessor" />
-	<bean id="MultiplicacaoProcessor" class="br.com.pratica.camel.processos.MultiplicacaoProcessor" />
-	<bean id="DivisaoProcessor" class="br.com.pratica.camel.processos.DivisaoProcessor" />
 
-	<bean id="SetHeaderProcessor" class="br.com.pratica.camel.processos.SetHeaderProcessor" />
-	<bean id="LoggerMessageProcessor" class="br.com.pratica.camel.processos.LoggerMessageProcessor" />
+	<!-- ImprimeString -->
+	<bean id="ImprimeStringProcessor"
+		class="br.com.pratica.camel.processos.imprimeString.ImprimeStringProcessor" />
 
-	<bean id="GetSomatoriaProcessor" class="br.com.pratica.camel.processos.GetSomatoriaProcessor" />
-	<bean id="GetSomatorioMqProcessor" class="br.com.pratica.camel.processos.GetSomatorioMqProcessor" />
-	
-	
-	<bean id="ConsultarPessoaIdProcessor" class="br.com.pratica.camel.processos.pessoa.ConsultarPessoaIdProcessor"/>
-	<bean id="ConsultarPessoaNomeProcessor" class="br.com.pratica.camel.processos.pessoa.ConsultarPessoaNomeProcessor"/>
-	<bean id="DeletarPessoaIdProcessor" class="br.com.pratica.camel.processos.pessoa.DeletarPessoaIdProcessor"/>
-	<bean id="EditarPessoaProcessor" class="br.com.pratica.camel.processos.pessoa.EditarPessoaProcessor"/>
-	<bean id="InserirPessoaProcessor" class="br.com.pratica.camel.processos.pessoa.InserirPessoaProcessor"/>
+	<!-- Calculadora -->
+	<bean id="SomaProcessor"
+		class="br.com.pratica.camel.processos.calculadora.SomaProcessor" />
+	<bean id="SubtracaoProcessor"
+		class="br.com.pratica.camel.processos.calculadora.SubtracaoProcessor" />
+	<bean id="MultiplicacaoProcessor"
+		class="br.com.pratica.camel.processos.calculadora.MultiplicacaoProcessor" />
+	<bean id="DivisaoProcessor"
+		class="br.com.pratica.camel.processos.calculadora.DivisaoProcessor" />
 
+
+	<!-- Somatoria -->
+	<bean id="SetHeaderProcessor"
+		class="br.com.pratica.camel.processos.somatoria.SetHeaderProcessor" />
+	<bean id="GetSomatoriaProcessor"
+		class="br.com.pratica.camel.processos.somatoria.GetSomatoriaProcessor" />
+	<bean id="GetSomatorioMqProcessor"
+		class="br.com.pratica.camel.processos.somatoria.GetSomatorioMqProcessor" />
+
+	<!-- Pessoa -->
+	<bean id="ConsultarPessoaIdProcessor"
+		class="br.com.pratica.camel.processos.pessoa.ConsultarPessoaIdProcessor" />
+	<bean id="ConsultarPessoaNomeProcessor"
+		class="br.com.pratica.camel.processos.pessoa.ConsultarPessoaNomeProcessor" />
+	<bean id="DeletarPessoaIdProcessor"
+		class="br.com.pratica.camel.processos.pessoa.DeletarPessoaIdProcessor" />
+	<bean id="EditarPessoaProcessor"
+		class="br.com.pratica.camel.processos.pessoa.EditarPessoaProcessor" />
+	<bean id="InserirPessoaProcessor"
+		class="br.com.pratica.camel.processos.pessoa.InserirPessoaProcessor" />
+
+	<bean id="LogMessageProcessor" class="br.com.pratica.camel.processos.LogMessageProcessor" />
+
+
+	<!-- Configuracao ActiveMQ -->
 	<bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent"
 		p:configuration-ref="jmsConfig">
 		<property name="configuration" ref="jmsConfig" />
@@ -62,8 +83,8 @@
 
 	<bean id="nakedConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory"
 		p:brokerURL="tcp://localhost:61616" />
-		
-			<!-- Configuracao JPA -->
+
+	<!-- Configuracao JPA -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="camelPraticaUnit" />
@@ -74,6 +95,6 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-	<tx:annotation-driven transaction-manager="transactionManager" />	
+	<tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>

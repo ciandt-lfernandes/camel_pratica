@@ -1,16 +1,17 @@
 package br.com.pratica.camel.dao;
 
 import br.com.pratica.camel.model.Pessoa;
+import br.com.pratica.camel.model.ResponseStringObject;
 
 
 
 public interface Dao {
 	
-	public String persistir(Pessoa pessoa);
-	public Pessoa consultaId(Integer id);
-	public Pessoa consultaNome(String nome);
+	public ResponseStringObject persistir(Pessoa pessoa);
+	public ResponseStringObject consultaId(Integer id);
+	public ResponseStringObject consultaNome(String nome);
 	public String deletarPessoa(Integer id);
-	public String editarPessoa(Pessoa p);
+	public ResponseStringObject editarPessoa(Pessoa p);
 	 
 	
 }

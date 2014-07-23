@@ -1,4 +1,4 @@
-package br.com.pratica.camel.processos;
+package br.com.pratica.camel.processos.calculadora;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 
@@ -6,6 +6,9 @@ import br.com.pratica.camel.model.Operandos;
 import br.com.pratica.camel.model.RequestString;
 import br.com.pratica.camel.model.ResponseString;
 
+/*
+ * Executa uma soma nos valores do objeto Operandos 
+ */
 
 public class SomaProcessor implements Processor {
 
